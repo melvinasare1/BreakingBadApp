@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		124009A325FC2142000A8ADA /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240099825FC2141000A8ADA /* PersistenceManager.swift */; };
 		124009A425FC2142000A8ADA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240099A25FC2141000A8ADA /* HomeViewModel.swift */; };
 		124009A525FC2142000A8ADA /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240099B25FC2141000A8ADA /* HomePageViewController.swift */; };
+		124009B225FC254C000A8ADA /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009B125FC254C000A8ADA /* CustomErrors.swift */; };
 		ADA10B4A3D4885223F867133 /* Pods_BreakingBadApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC298254367155423C71C00 /* Pods_BreakingBadApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		1240099825FC2141000A8ADA /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		1240099A25FC2141000A8ADA /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1240099B25FC2141000A8ADA /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		124009B125FC254C000A8ADA /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		2D7CDF45EB9AB21AE81B35DF /* Pods-BreakingBadApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadApp.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBadApp/Pods-BreakingBadApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2DC298254367155423C71C00 /* Pods_BreakingBadApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakingBadApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D720AEB25B918873C060A19F /* Pods-BreakingBadApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadApp.release.xcconfig"; path = "Target Support Files/Pods-BreakingBadApp/Pods-BreakingBadApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +76,8 @@
 				124009AA25FC2163000A8ADA /* Model */,
 				1240099925FC2141000A8ADA /* Screens */,
 				1240099525FC2141000A8ADA /* Managers */,
+				124009B425FC2551000A8ADA /* Utilities */,
+				124009B725FC256D000A8ADA /* CustomViews */,
 				1240098125FC20CD000A8ADA /* Assets.xcassets */,
 				1240098325FC20CD000A8ADA /* LaunchScreen.storyboard */,
 				1240098625FC20CD000A8ADA /* Info.plist */,
@@ -107,6 +111,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		124009B425FC2551000A8ADA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				124009B125FC254C000A8ADA /* CustomErrors.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		124009B725FC256D000A8ADA /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		30FB73FF107059BD3572F3CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +140,6 @@
 				2D7CDF45EB9AB21AE81B35DF /* Pods-BreakingBadApp.debug.xcconfig */,
 				D720AEB25B918873C060A19F /* Pods-BreakingBadApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -243,6 +261,7 @@
 				124009A325FC2142000A8ADA /* PersistenceManager.swift in Sources */,
 				1240097925FC20CA000A8ADA /* AppDelegate.swift in Sources */,
 				124009A525FC2142000A8ADA /* HomePageViewController.swift in Sources */,
+				124009B225FC254C000A8ADA /* CustomErrors.swift in Sources */,
 				1240097B25FC20CA000A8ADA /* SceneDelegate.swift in Sources */,
 				124009A125FC2142000A8ADA /* Character.swift in Sources */,
 			);
