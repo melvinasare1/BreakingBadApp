@@ -12,6 +12,5 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        NetworkManager.shared.fetchCharacterData()
     }
 }
