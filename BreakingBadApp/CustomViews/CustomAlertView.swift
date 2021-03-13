@@ -21,8 +21,7 @@ class CustomAlertView: UIViewController {
 
     private lazy var titleLabel: CustomTitleLabel = {
         let label = CustomTitleLabel()
-        label.configure(labelText: "Error",
-                        textAlignment: .center,
+        label.configure(textAlignment: .center,
                         fontSize: 30,
                         fontColor: .darkGray,
                         fontWeight: .bold)
@@ -33,8 +32,7 @@ class CustomAlertView: UIViewController {
 
     private lazy var messageLabel: CustomTitleLabel = {
         let label = CustomTitleLabel()
-        label.configure(labelText: "There was an error, please check again",
-                        textAlignment: .center,
+        label.configure(textAlignment: .center,
                         fontSize: 20,
                         fontColor: .lightGray,
                         fontWeight: .medium)

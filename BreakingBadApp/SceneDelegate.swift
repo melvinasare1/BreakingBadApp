@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
 
             let window = UIWindow(windowScene: windowScene)
-            let homePage = HomePageViewController()
+            let homePage = HomePageViewController(viewModel: HomePageViewModel())
 
             self.window = window
             window.makeKeyAndVisible()
