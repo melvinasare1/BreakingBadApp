@@ -39,6 +39,5 @@ private extension CustomAvatarImageView {
     }
 
     @objc func avatarPressed() {
-        print("123")
     }
 }
