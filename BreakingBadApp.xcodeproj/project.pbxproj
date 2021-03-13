@@ -20,6 +20,7 @@
 		124009C225FC2B6D000A8ADA /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009C125FC2B6D000A8ADA /* CustomAlertView.swift */; };
 		124009C525FC2BB7000A8ADA /* CustomTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009C425FC2BB7000A8ADA /* CustomTitleLabel.swift */; };
 		124009C825FC35F5000A8ADA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009C725FC35F5000A8ADA /* Extensions.swift */; };
+		124009D725FCB25B000A8ADA /* CustomAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009D625FCB25B000A8ADA /* CustomAvatarImageView.swift */; };
 		ADA10B4A3D4885223F867133 /* Pods_BreakingBadApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC298254367155423C71C00 /* Pods_BreakingBadApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		124009C125FC2B6D000A8ADA /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		124009C425FC2BB7000A8ADA /* CustomTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleLabel.swift; sourceTree = "<group>"; };
 		124009C725FC35F5000A8ADA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		124009D625FCB25B000A8ADA /* CustomAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAvatarImageView.swift; sourceTree = "<group>"; };
 		2D7CDF45EB9AB21AE81B35DF /* Pods-BreakingBadApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadApp.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBadApp/Pods-BreakingBadApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2DC298254367155423C71C00 /* Pods_BreakingBadApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakingBadApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D720AEB25B918873C060A19F /* Pods-BreakingBadApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadApp.release.xcconfig"; path = "Target Support Files/Pods-BreakingBadApp/Pods-BreakingBadApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				124009C125FC2B6D000A8ADA /* CustomAlertView.swift */,
+				124009D625FCB25B000A8ADA /* CustomAvatarImageView.swift */,
 				124009C425FC2BB7000A8ADA /* CustomTitleLabel.swift */,
 			);
 			path = CustomViews;
@@ -275,6 +278,7 @@
 				124009A525FC2142000A8ADA /* HomePageViewController.swift in Sources */,
 				124009B225FC254C000A8ADA /* CustomErrors.swift in Sources */,
 				1240097B25FC20CA000A8ADA /* SceneDelegate.swift in Sources */,
+				124009D725FCB25B000A8ADA /* CustomAvatarImageView.swift in Sources */,
 				124009A125FC2142000A8ADA /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
