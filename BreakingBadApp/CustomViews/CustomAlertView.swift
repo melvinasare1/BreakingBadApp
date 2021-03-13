@@ -44,9 +44,12 @@ class CustomAlertView: UIViewController {
         return label
     }()
 
-    private let actionButton: UIButton = {
+    private lazy var actionButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 12
+        button.setTitle(buttonTitle, for: .normal)
         return button
     }()
 
@@ -58,7 +61,8 @@ class CustomAlertView: UIViewController {
         setup()
     }
 
-    public func configure(title: String, message: String, buttonTitle: String) {
+    init(title: String, message: String, buttonTitle: String) {
+        super.init(nibName: nil, bundle: nil)
         self.alertTitle     = title
         self.message        = message
         self.buttonTitle    = buttonTitle
@@ -90,5 +94,19 @@ private extension CustomAlertView {
         titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Constants.padding).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.padding).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 28).isActive = true
+
+        messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
+        messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Constants.padding).isActive = true
+        messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.padding).isActive = true
+        messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -12).isActive = true
+
+        actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Constants.padding).isActive = true
+        actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Constants.padding).isActive = true
+        actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.padding).isActive = true
+        actionButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+    }
+
+    @objc func dismissVC() {
+        dismiss(animated: true)
     }
 }
