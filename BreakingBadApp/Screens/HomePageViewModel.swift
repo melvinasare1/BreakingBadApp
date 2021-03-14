@@ -10,6 +10,8 @@ import Foundation
 class HomePageViewModel {
 
     public var characters: [Character] = []
+    public var filteredCharacters: [Character] = []
+    public var isSearching: Bool = false
 
     func fetchCharacterData(_ completion: @escaping ([Character]) -> Void) {
         NetworkManager.shared.fetchCharacterData { charactersData in
