@@ -62,11 +62,8 @@ private extension HomePageViewController {
 
         viewModel.fetchCharacterData { [weak self] characterData in
             guard let self = self else { return }
-            print(self.viewModel.characters)
             self.updateCollectionView(on: self.viewModel.characters)
         }
-
-
     }
 
     @objc func filterButtonPressed() {
@@ -81,7 +78,6 @@ extension HomePageViewController: UICollectionViewDelegate {
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomePageCollectionViewCell
             cell?.configure(with: characters)
-            print(self.viewModel.characters)
             return cell
         })
     }

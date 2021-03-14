@@ -11,9 +11,6 @@ class HomePageViewModel {
 
     public var characters: [Character] = []
 
-    init() {
-
-    }
     func fetchCharacterData(_ completion: @escaping ([Character]) -> Void) {
         NetworkManager.shared.fetchCharacterData { charactersData in
             self.characters = charactersData
