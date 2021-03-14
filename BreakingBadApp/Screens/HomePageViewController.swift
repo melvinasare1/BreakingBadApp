@@ -31,9 +31,7 @@ class HomePageViewController: UIViewController {
     private let viewModel: HomePageViewModel
     private var dataSource: UICollectionViewDiffableDataSource<Section, Character>!
 
-    enum Section {
-        case main
-    }
+    enum Section { case main }
 
     init(viewModel: HomePageViewModel) {
         self.viewModel = viewModel
@@ -47,6 +45,9 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+
+        configureCollectionViewDataSource()
+        updateCollectionView(on: viewModel.characters)
     }
 }
 
@@ -59,10 +60,13 @@ private extension HomePageViewController {
         let filterButton =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(filterButtonPressed))
         navigationItem.rightBarButtonItem = filterButton
 
-        configureCollectionViewDataSource()
-        updateCollectionView(on: viewModel.characters)
-        print(viewModel.characters)
-        viewModel.fetchCharacterData()
+        viewModel.fetchCharacterData { [weak self] characterData in
+            guard let self = self else { return }
+            print(self.viewModel.characters)
+            self.updateCollectionView(on: self.viewModel.characters)
+        }
+
+
     }
 
     @objc func filterButtonPressed() {
@@ -77,6 +81,7 @@ extension HomePageViewController: UICollectionViewDelegate {
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomePageCollectionViewCell
             cell?.configure(with: characters)
+            print(self.viewModel.characters)
             return cell
         })
     }

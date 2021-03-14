@@ -18,6 +18,7 @@ class HomePageCollectionViewCell: UICollectionViewCell {
 
     private var characterNameLabel: CustomTitleLabel = {
         let label = CustomTitleLabel()
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

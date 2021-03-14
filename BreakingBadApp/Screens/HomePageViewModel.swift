@@ -12,15 +12,12 @@ class HomePageViewModel {
     public var characters: [Character] = []
 
     init() {
-        fetchCharacterData()
-    }
 
-    func fetchCharacterData() {
-        NetworkManager.shared.fetchCharacterData { [weak self] charactersData in
-            guard let self = self else { return }
+    }
+    func fetchCharacterData(_ completion: @escaping ([Character]) -> Void) {
+        NetworkManager.shared.fetchCharacterData { charactersData in
             self.characters = charactersData
-            print(self.characters)
+            completion(self.characters)
         }
     }
-    
 }
