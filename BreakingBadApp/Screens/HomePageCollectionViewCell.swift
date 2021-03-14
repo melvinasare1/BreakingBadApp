@@ -10,9 +10,11 @@ import SDWebImage
 
 class HomePageCollectionViewCell: UICollectionViewCell {
 
-    private lazy var avatarImageView: CustomAvatarImageView = {
-        let imageView = CustomAvatarImageView(frame: .zero)
+    private lazy var avatarImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         return imageView
     }()
 
