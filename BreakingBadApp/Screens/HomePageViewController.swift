@@ -57,10 +57,6 @@ class HomePageViewController: UIViewController {
         searchController.searchBar.placeholder = BreakingBad.strings.searchCharacters
         navigationItem.searchController = searchController
     }
-
-    @objc func screenTapped() {
-        updateCollectionView(on: viewModel.characters)
-    }
 }
 
 private extension HomePageViewController {
@@ -80,9 +76,6 @@ private extension HomePageViewController {
             guard let self = self else { return }
             self.updateCollectionView(on: self.viewModel.characters)
         }
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(screenTapped))
-        view.addGestureRecognizer(tapGesture)
     }
 
     @objc func filterButtonPressed() {
