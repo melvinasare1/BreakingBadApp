@@ -17,8 +17,7 @@ class CustomTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func configure(labelText: String, textAlignment: NSTextAlignment, fontSize: CGFloat, fontColor: UIColor, fontWeight:  UIFont.Weight) {
-        self.text = labelText
+    public func configure(textAlignment: NSTextAlignment, fontSize: CGFloat, fontColor: UIColor, fontWeight:  UIFont.Weight) {
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
         self.textColor = fontColor
