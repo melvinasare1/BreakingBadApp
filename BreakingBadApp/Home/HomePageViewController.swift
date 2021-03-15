@@ -85,6 +85,12 @@ private extension HomePageViewController {
 
 extension HomePageViewController: UICollectionViewDelegate {
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentCharacter = viewModel.characters[indexPath.item]
+        let profileViewController = ProfileViewController(viewModel: ProfileViewModel(characterData: currentCharacter))
+        presentPanModal(profileViewController)
+    }
+
     func configureCollectionViewDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Character>(collectionView: characterCollectionView, cellProvider: { (collectionView, indexPath, characters) -> UICollectionViewCell? in
 

