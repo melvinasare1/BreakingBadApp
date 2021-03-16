@@ -11,6 +11,7 @@ class CustomTitleLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
     }
 
     required init?(coder: NSCoder) {

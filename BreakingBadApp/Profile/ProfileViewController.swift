@@ -10,6 +10,11 @@ import SDWebImage
 
 class ProfileViewController: UIViewController {
 
+    enum statusIcon {
+        case alive
+        case dead
+    }
+
     private lazy var avatarImageView: CustomAvatarImageView = {
         let imageView = CustomAvatarImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -19,8 +24,6 @@ class ProfileViewController: UIViewController {
     private var characterNameLabel: CustomTitleLabel = {
         let label = CustomTitleLabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        label.configure(textAlignment: .center, fontSize: 24, fontColor: .darkGray, fontWeight: .heavy)
         return label
     }()
 
@@ -34,32 +37,42 @@ class ProfileViewController: UIViewController {
     private var occupationLabel: CustomTitleLabel = {
         let label = CustomTitleLabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .center, fontSize: 24, fontColor: .darkGray, fontWeight: .regular)
-        
-        return label
-    }()
-
-    private var statusLabel: CustomTitleLabel = {
-        let label = CustomTitleLabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .center, fontSize: 24, fontColor: .darkGray, fontWeight: .heavy)
+        label.configure(textAlignment: .center, fontSize: 16, fontColor: .darkGray, fontWeight: .regular)
         return label
     }()
 
     private var seasonLabel: CustomTitleLabel = {
         let label = CustomTitleLabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .center, fontSize: 24, fontColor: .darkGray, fontWeight: .heavy)
+        label.configure(textAlignment: .center, fontSize: 16, fontColor: .darkGray, fontWeight: .regular)
         return label
     }()
 
-//    private let stackView: UIStackView = {
-//        let view = UIStackView()
-//        view.alignment = .center
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.axis = .vertical
-//        return view
-//    }()
+    private var statusImageView: CustomAvatarImageView = {
+        let imageView = CustomAvatarImageView(frame: .zero)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    private func attributedString(for username: String) -> NSAttributedString {
+        let nickname = " (\(viewModel.characterData.nickname))"
+        let paragraphStyle = NSMutableParagraphStyle()
+        let combinedString = "\(username) \(nickname)"
+        let usernameStringAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.darkGray,
+            .font: UIFont.systemFont(ofSize: 22, weight: .heavy),
+        ]
+        let nicknametStringAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.lightGray,
+            .font: UIFont.systemFont(ofSize: 18, weight: .regular)
+        ]
+        let attString = NSMutableAttributedString(string: combinedString)
+
+        attString.addAttributes(usernameStringAttributes, range: (combinedString as NSString).range(of: username))
+        attString.addAttributes(nicknametStringAttributes, range: (combinedString as NSString).range(of: nickname))
+        attString.addAttributes([.paragraphStyle: paragraphStyle], range: (combinedString as NSString).range(of: combinedString))
+        return attString
+    }
 
     private var viewModel: ProfileViewModel
 
@@ -79,10 +92,18 @@ class ProfileViewController: UIViewController {
 
     func configureCharacterData() {
         avatarImageView.sd_setImage(with: URL(string: viewModel.characterData.img))
-        characterNameLabel.text = viewModel.characterData.name
-        characterNickNameLabel.text = viewModel.characterData.nickname
+        characterNameLabel.attributedText = attributedString(for: viewModel.characterData.name)
+        characterNameLabel.textAlignment = .center
+        characterNameLabel.numberOfLines = 0
         occupationLabel.text = viewModel.characterData.occupation.joined(separator: ", ")
-        seasonLabel.text = "\(viewModel.characterData.appearance)"
+        seasonLabel.text = "Season Appearances \(viewModel.characterData.appearance)"
+        if viewModel.characterData.status == "Alive" {
+            statusImageView.configure(image: UIImage(named: "alive")!)
+        } else if viewModel.characterData.status == "Deceased" {
+            statusImageView.configure(image: UIImage(named: "deceased")!)
+        } else {
+            statusImageView.configure(image: UIImage(named: "unknown")!)
+        }
     }
 }
 
@@ -93,7 +114,7 @@ extension ProfileViewController: PanModalPresentable {
     }
 
     var shortFormHeight: PanModalHeight {
-        return .contentHeight(450)
+        return .contentHeight(350)
     }
 
     var showDragIndicator: Bool {
@@ -112,7 +133,7 @@ private extension ProfileViewController {
         view.addSubview(avatarImageView)
         view.addSubview(characterNameLabel)
         view.addSubview(occupationLabel)
-        view.addSubview(statusLabel)
+        view.addSubview(statusImageView)
         view.addSubview(characterNickNameLabel)
         view.addSubview(seasonLabel)
 
@@ -130,18 +151,20 @@ private extension ProfileViewController {
         characterNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
 
         occupationLabel.topAnchor.constraint(equalTo: characterNameLabel.bottomAnchor, constant: 15).isActive = true
-        occupationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        occupationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        occupationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        occupationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
 
-        seasonLabel.topAnchor.constraint(equalTo: occupationLabel.bottomAnchor, constant: 15).isActive = true
+        seasonLabel.topAnchor.constraint(equalTo: occupationLabel.bottomAnchor, constant: 5).isActive = true
         seasonLabel.leadingAnchor.constraint(equalTo: occupationLabel.leadingAnchor).isActive = true
         seasonLabel.trailingAnchor.constraint(equalTo: occupationLabel.trailingAnchor).isActive = true
 
-//
-//        characterNickNameLabel.leadingAnchor.constraint(equalTo: characterNameLabel.trailingAnchor, constant: 8).isActive = true
-//        characterNickNameLabel.centerYAnchor.constraint(equalTo: characterNameLabel.centerYAnchor).isActive = true
-//        characterNickNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        statusImageView.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor).isActive = true
+        statusImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 20).isActive = true
+        statusImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        statusImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
 
-
+        characterNickNameLabel.leadingAnchor.constraint(equalTo: characterNameLabel.trailingAnchor).isActive = true
+        characterNickNameLabel.centerYAnchor.constraint(equalTo: characterNameLabel.centerYAnchor).isActive = true
+        characterNickNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
 }
