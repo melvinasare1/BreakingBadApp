@@ -10,11 +10,6 @@ import SDWebImage
 
 class ProfileViewController: UIViewController {
 
-    enum statusIcon {
-        case alive
-        case dead
-    }
-
     private lazy var avatarImageView: CustomAvatarImageView = {
         let imageView = CustomAvatarImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,13 +19,6 @@ class ProfileViewController: UIViewController {
     private var characterNameLabel: CustomTitleLabel = {
         let label = CustomTitleLabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private var characterNickNameLabel: CustomTitleLabel = {
-        let label = CustomTitleLabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.configure(textAlignment: .center, fontSize: 18, fontColor: .darkGray, fontWeight: .ultraLight)
         return label
     }()
 
@@ -134,37 +122,37 @@ private extension ProfileViewController {
         view.addSubview(characterNameLabel)
         view.addSubview(occupationLabel)
         view.addSubview(statusImageView)
-        view.addSubview(characterNickNameLabel)
         view.addSubview(seasonLabel)
 
         configureCharacterData()
 
-        let padding: CGFloat = 20
-
-        avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.padding).isActive = true
         avatarImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         avatarImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         avatarImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
 
-        characterNameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 15).isActive = true
-        characterNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        characterNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        characterNameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: Constants.gap).isActive = true
+        characterNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.imageViewDimensions).isActive = true
+        characterNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.imageViewDimensions).isActive = true
 
-        occupationLabel.topAnchor.constraint(equalTo: characterNameLabel.bottomAnchor, constant: 15).isActive = true
-        occupationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        occupationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        occupationLabel.topAnchor.constraint(equalTo: characterNameLabel.bottomAnchor, constant: Constants.gap).isActive = true
+        occupationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.padding).isActive = true
+        occupationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.padding).isActive = true
 
         seasonLabel.topAnchor.constraint(equalTo: occupationLabel.bottomAnchor, constant: 5).isActive = true
         seasonLabel.leadingAnchor.constraint(equalTo: occupationLabel.leadingAnchor).isActive = true
         seasonLabel.trailingAnchor.constraint(equalTo: occupationLabel.trailingAnchor).isActive = true
 
         statusImageView.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor).isActive = true
-        statusImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 20).isActive = true
-        statusImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        statusImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        statusImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: Constants.padding).isActive = true
+        statusImageView.heightAnchor.constraint(equalToConstant: Constants.imageViewDimensions).isActive = true
+        statusImageView.widthAnchor.constraint(equalToConstant: Constants.imageViewDimensions).isActive = true
+    }
 
-        characterNickNameLabel.leadingAnchor.constraint(equalTo: characterNameLabel.trailingAnchor).isActive = true
-        characterNickNameLabel.centerYAnchor.constraint(equalTo: characterNameLabel.centerYAnchor).isActive = true
-        characterNickNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    struct Constants {
+        static let padding: CGFloat = 20
+        static let imageViewDimensions: CGFloat = 40
+        static let gap: CGFloat = 15
+        static let avatarImageDimension: CGFloat = 150
     }
 }
