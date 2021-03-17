@@ -33,7 +33,6 @@ private extension CustomAvatarImageView {
         let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(avatarPressed))
         addGestureRecognizer(tapGuesture)
 
-        self.backgroundColor = .systemBlue
         self.clipsToBounds = true
         self.translatesAutoresizingMaskIntoConstraints = false
     }
