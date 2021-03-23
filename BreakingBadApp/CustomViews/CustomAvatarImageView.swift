@@ -30,14 +30,7 @@ class CustomAvatarImageView: UIImageView {
 
 private extension CustomAvatarImageView {
     func setup() {
-        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(avatarPressed))
-        addGestureRecognizer(tapGuesture)
-
-        self.backgroundColor = .systemBlue
         self.clipsToBounds = true
         self.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-    @objc func avatarPressed() {
     }
 }

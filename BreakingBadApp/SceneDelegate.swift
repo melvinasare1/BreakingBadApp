@@ -17,10 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             let window = UIWindow(windowScene: windowScene)
             let homePage = HomePageViewController(viewModel: HomePageViewModel())
+            let navigationController = UINavigationController(rootViewController: homePage)
 
             self.window = window
             window.makeKeyAndVisible()
-            window.rootViewController = homePage
+            window.rootViewController = navigationController
         }
     }
 

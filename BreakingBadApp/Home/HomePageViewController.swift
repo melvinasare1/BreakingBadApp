@@ -49,13 +49,25 @@ class HomePageViewController: UIViewController {
         configureCollectionViewDataSource()
         updateCollectionView(on: viewModel.characters)
     }
+
+    private func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = BreakingBad.strings.searchCharacters
+        navigationItem.searchController = searchController
+    }
 }
 
 private extension HomePageViewController {
     func setup() {
-        view.backgroundColor = .white
+        title = BreakingBad.strings.breakingBad
+        
+        view.backgroundColor = .systemBackground
 
         view.addSubview(characterCollectionView)
+
+        configureSearchController()
 
         let filterButton =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(filterButtonPressed))
         navigationItem.rightBarButtonItem = filterButton
@@ -73,6 +85,13 @@ private extension HomePageViewController {
 
 extension HomePageViewController: UICollectionViewDelegate {
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let activeArray = viewModel.isSearching ? viewModel.filteredCharacters : viewModel.characters
+        let currentCharacter = activeArray[indexPath.item]
+        let profileViewController = ProfileViewController(viewModel: ProfileViewModel(characterData: currentCharacter))
+        presentPanModal(profileViewController)
+    }
+
     func configureCollectionViewDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Character>(collectionView: characterCollectionView, cellProvider: { (collectionView, indexPath, characters) -> UICollectionViewCell? in
 
@@ -87,5 +106,24 @@ extension HomePageViewController: UICollectionViewDelegate {
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+}
+
+extension HomePageViewController:  UISearchResultsUpdating, UISearchBarDelegate {
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        viewModel.isSearching = true
+        viewModel.filteredCharacters = viewModel.characters.filter { $0.name.lowercased().contains(filter.lowercased()) }
+        updateCollectionView(on: viewModel.filteredCharacters)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateCollectionView(on: viewModel.characters)
+        viewModel.isSearching = false
+    }
+
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return !text.hasSpecialCharacters
     }
 }
