@@ -36,11 +36,33 @@ class ProfileViewController: UIViewController {
         return label
     }()
 
-    private var statusImageView: CustomAvatarImageView = {
+    private lazy var statusImageView: CustomAvatarImageView = {
         let imageView = CustomAvatarImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapImageShowText))
+        imageView.addGestureRecognizer(tapGesture)
         return imageView
     }()
+
+    private var statusLabel: CustomTitleLabel = {
+        let label = CustomTitleLabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .darkGray
+        label.configure(textAlignment: .center, fontSize: 16, fontColor: .white, fontWeight: .regular)
+        label.isHidden = true
+        return label
+    }()
+
+    @objc func tapImageShowText() {
+        if viewModel.showStatusLabel == false {
+            viewModel.showStatusLabel = true
+            statusLabel.isHidden = false
+        } else if viewModel.showStatusLabel == true {
+            viewModel.showStatusLabel = false
+            statusLabel.isHidden = true
+        }
+    }
 
     private func attributedString(for username: String) -> NSAttributedString {
         let nickname = " (\(viewModel.characterData.nickname))"
@@ -79,6 +101,7 @@ class ProfileViewController: UIViewController {
     }
 
     func configureCharacterData() {
+        statusLabel.text = viewModel.characterData.status
         avatarImageView.sd_setImage(with: URL(string: viewModel.characterData.img))
         characterNameLabel.attributedText = attributedString(for: viewModel.characterData.name)
         characterNameLabel.textAlignment = .center
@@ -123,6 +146,7 @@ private extension ProfileViewController {
         view.addSubview(occupationLabel)
         view.addSubview(statusImageView)
         view.addSubview(seasonLabel)
+        view.addSubview(statusLabel)
 
         configureCharacterData()
 
@@ -147,6 +171,10 @@ private extension ProfileViewController {
         statusImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: Constants.padding).isActive = true
         statusImageView.heightAnchor.constraint(equalToConstant: Constants.imageViewDimensions).isActive = true
         statusImageView.widthAnchor.constraint(equalToConstant: Constants.imageViewDimensions).isActive = true
+
+        statusLabel.bottomAnchor.constraint(equalTo: statusImageView.topAnchor, constant: -8).isActive = true
+        statusLabel.centerXAnchor.constraint(equalTo: statusImageView.centerXAnchor).isActive = true
+
     }
 
     struct Constants {

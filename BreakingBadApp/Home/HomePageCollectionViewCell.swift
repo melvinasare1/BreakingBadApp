@@ -22,6 +22,7 @@ class HomePageCollectionViewCell: UICollectionViewCell {
         let label = CustomTitleLabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.configure(textAlignment: .center, fontSize: 14, fontColor: .darkGray, fontWeight: .heavy)
         return label
     }()
 
@@ -54,7 +55,6 @@ private extension HomePageCollectionViewCell {
         characterNameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12).isActive = true
         characterNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.padding).isActive = true
         characterNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.padding).isActive = true
-        characterNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
 
     struct Constants {
