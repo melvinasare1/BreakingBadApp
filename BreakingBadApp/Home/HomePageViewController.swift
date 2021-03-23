@@ -86,7 +86,8 @@ private extension HomePageViewController {
 extension HomePageViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let currentCharacter = viewModel.characters[indexPath.item]
+        let activeArray = viewModel.isSearching ? viewModel.filteredCharacters : viewModel.characters
+        let currentCharacter = activeArray[indexPath.item]
         let profileViewController = ProfileViewController(viewModel: ProfileViewModel(characterData: currentCharacter))
         presentPanModal(profileViewController)
     }
@@ -109,6 +110,7 @@ extension HomePageViewController: UICollectionViewDelegate {
 }
 
 extension HomePageViewController:  UISearchResultsUpdating, UISearchBarDelegate {
+
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
         viewModel.isSearching = true
@@ -119,5 +121,9 @@ extension HomePageViewController:  UISearchResultsUpdating, UISearchBarDelegate 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         updateCollectionView(on: viewModel.characters)
         viewModel.isSearching = false
+    }
+
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return !text.hasSpecialCharacters
     }
 }
