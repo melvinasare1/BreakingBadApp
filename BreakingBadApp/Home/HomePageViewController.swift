@@ -120,11 +120,10 @@ extension HomePageViewController:  UISearchResultsUpdating, UISearchBarDelegate 
             updateCollectionView(on: viewModel.filteredCharacters)
         }
 
-
         #warning("need to fix this")
         if !filter.isEmpty, viewModel.filteredCharacters.isEmpty {
             showEmptyStateView(in: self.view, isHidden: false)
-        } else {
+        } else if !viewModel.filteredCharacters.isEmpty {
             showEmptyStateView(in: self.view, isHidden: true)
         }
     }
