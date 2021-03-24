@@ -71,7 +71,9 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-
+        NetworkManager.shared.fetchCharacterDataAlamofire { (character) in
+            print(character)
+        }
         configureCollectionViewDataSource()
         updateCollectionView(on: viewModel.characters)
     }

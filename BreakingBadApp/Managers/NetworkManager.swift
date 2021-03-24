@@ -11,6 +11,14 @@ class NetworkManager {
 
     static let shared = NetworkManager()
 
+    func fetchCharacterDataAlamofire(_ completion: @escaping ([Character]) -> Void) {
+        AF.request("https://breakingbadapi.com/api/characters")
+            .responseData { response in
+                completion(response)
+            }
+    }
+
+
     func fetchCharacterData(_ completion: @escaping ([Character]) -> Void) {
         let endpoint = "https://breakingbadapi.com/api/characters"
 
