@@ -14,10 +14,10 @@
             filePath = "BreakingBadApp/Home/HomePageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "HomePageViewController"
-            landmarkType = "21">
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "searchBarCancelButtonClicked(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

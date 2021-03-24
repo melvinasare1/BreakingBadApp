@@ -31,9 +31,14 @@ class HomePageViewController: UIViewController {
 
     private lazy var dropDown: DropDown = {
         let dropDown = DropDown()
+        let grayColor =  UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 0.5)
         dropDown.translatesAutoresizingMaskIntoConstraints = false
         dropDown.dismissMode = .onTap
         dropDown.width = 200
+        dropDown.cornerRadius = 16
+        dropDown.selectionBackgroundColor = .systemGreen
+        dropDown.dimmedBackgroundColor = grayColor
+
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
           print("Selected item: \(item) at index: \(index)")
             if index == 1 {
@@ -98,7 +103,8 @@ private extension HomePageViewController {
         configureSearchController()
         addAnchorFotDropDown()
 
-        let filterButton =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(filterButtonPressed))
+        let filterButton = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonPressed))
+
         navigationItem.rightBarButtonItem = filterButton
 
         viewModel.fetchCharacterData { [weak self] characterData in
