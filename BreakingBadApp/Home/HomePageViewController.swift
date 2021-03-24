@@ -112,10 +112,21 @@ extension HomePageViewController: UICollectionViewDelegate {
 extension HomePageViewController:  UISearchResultsUpdating, UISearchBarDelegate {
 
     func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
-        viewModel.isSearching = true
-        viewModel.filteredCharacters = viewModel.characters.filter { $0.name.lowercased().contains(filter.lowercased()) }
-        updateCollectionView(on: viewModel.filteredCharacters)
+        guard let filter = searchController.searchBar.text else { return }
+
+        if !filter.isEmpty {
+            viewModel.isSearching = true
+            viewModel.filteredCharacters = viewModel.characters.filter { $0.name.lowercased().contains(filter.lowercased()) }
+            updateCollectionView(on: viewModel.filteredCharacters)
+        }
+
+
+        #warning("need to fix this")
+        if !filter.isEmpty, viewModel.filteredCharacters.isEmpty {
+            showEmptyStateView(in: self.view, isHidden: false)
+        } else {
+            showEmptyStateView(in: self.view, isHidden: true)
+        }
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

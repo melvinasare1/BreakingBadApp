@@ -17,6 +17,13 @@ extension UIViewController {
             self.present(alertViewController, animated: true)
         }
     }
+
+    func showEmptyStateView(in view: UIView, isHidden: Bool) {
+        let emptyStateView = EmptyStateView()
+        emptyStateView.isHidden = isHidden
+        emptyStateView.frame = view.bounds
+        view.addSubview(emptyStateView)
+    }
 }
 
 extension UIView {
@@ -34,6 +41,8 @@ extension UIView {
             bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
     }
+
+    
 }
 
 extension String {
