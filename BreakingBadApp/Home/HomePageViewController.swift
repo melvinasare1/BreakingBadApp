@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DropDown
 
 class HomePageViewController: UIViewController {
 
@@ -26,6 +27,31 @@ class HomePageViewController: UIViewController {
         collectionView.register(HomePageCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         return collectionView
+    }()
+
+    private lazy var dropDown: DropDown = {
+        let dropDown = DropDown()
+        let grayColor =  UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 0.5)
+        dropDown.translatesAutoresizingMaskIntoConstraints = false
+        dropDown.dismissMode = .onTap
+        dropDown.width = 200
+        dropDown.cornerRadius = 16
+        dropDown.selectionBackgroundColor = .systemGreen
+        dropDown.dimmedBackgroundColor = grayColor
+
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+          print("Selected item: \(item) at index: \(index)")
+            if index == 1 {
+                self.updateCollectionView(on: self.viewModel.characters)
+            }else if index == 0{
+                self.updateCollectionView(on: self.viewModel.characters)
+            }else{
+                let characters = self.viewModel.characters.filter({ $0.appearance.contains(Int(item) ?? 0) })
+                print(characters.count)
+                self.updateCollectionView(on: characters)
+            }
+        }
+        return dropDown
     }()
 
     private let viewModel: HomePageViewModel
@@ -50,6 +76,14 @@ class HomePageViewController: UIViewController {
         updateCollectionView(on: viewModel.characters)
     }
 
+    private func addAnchorFotDropDown(){
+        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        btn.isUserInteractionEnabled = false
+        dropDown.anchorView = btn
+        btn.center = CGPoint(x: view.center.x - 60, y: view.center.y - 64)
+        self.view.addSubview(btn)
+    }
+
     private func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
@@ -63,23 +97,29 @@ private extension HomePageViewController {
     func setup() {
         title = BreakingBad.strings.breakingBad
         
-        view.backgroundColor = .systemBackground
-
+        view.backgroundColor = .white
         view.addSubview(characterCollectionView)
 
         configureSearchController()
+        addAnchorFotDropDown()
 
-        let filterButton =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(filterButtonPressed))
+        let filterButton = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonPressed))
+
         navigationItem.rightBarButtonItem = filterButton
 
         viewModel.fetchCharacterData { [weak self] characterData in
             guard let self = self else { return }
             self.updateCollectionView(on: self.viewModel.characters)
+            let seasons = characterData.flatMap({ $0.appearance })
+            var seasonsArr = ["All"]
+            let unique = Array(Set(seasons)).sorted().map({ String($0)})
+            seasonsArr.append(contentsOf: unique)
+            self.dropDown.dataSource = seasonsArr
         }
     }
 
     @objc func filterButtonPressed() {
-        print("Filter Pressed")
+        dropDown.show()
     }
 }
 

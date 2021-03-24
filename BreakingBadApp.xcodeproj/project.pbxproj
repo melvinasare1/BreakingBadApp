@@ -223,8 +223,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1240098925FC20CD000A8ADA /* Build configuration list for PBXNativeTarget "BreakingBadApp" */;
 			buildPhases = (
-				C21CACB79EE66CD9BAAAC43A /* [CP] Build Pods Frameworks */,
 				5FE20A4BCE55BACCC98B4EF3 /* [CP] Check Pods Manifest.lock */,
+				C21CACB79EE66CD9BAAAC43A /* [CP] Build Pods Frameworks */,
 				1240097125FC20CA000A8ADA /* Sources */,
 				1240097225FC20CA000A8ADA /* Frameworks */,
 				1240097325FC20CA000A8ADA /* Resources */,
