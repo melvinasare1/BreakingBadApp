@@ -62,3 +62,10 @@ extension String {
         return acceptedChars.count < self.count
     }
 }
+
+extension UIImageView {
+    
+    func downloadCache(url: String, imageView: UIImageView) {
+        NetworkManager.shared.downloadCache(from: url, imageView: imageView)
+    }
+}
