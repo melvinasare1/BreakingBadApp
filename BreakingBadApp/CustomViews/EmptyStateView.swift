@@ -12,7 +12,7 @@ class EmptyStateView: UIView {
     let messageLabel: CustomTitleLabel = {
         let label = CustomTitleLabel(frame: .zero)
         label.configure(textAlignment: .center, fontSize: 22, fontColor: .darkGray, fontWeight: .heavy)
-        label.text = "The character doesnt exist."
+        label.text = "There was an error 😞. Please try again later."
         return label
     }()
 

@@ -125,7 +125,7 @@ extension ProfileViewController: PanModalPresentable {
     }
 
     var shortFormHeight: PanModalHeight {
-        return .contentHeight(350)
+        return .contentHeight(300)
     }
 
     var showDragIndicator: Bool {
