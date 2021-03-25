@@ -17,6 +17,14 @@ extension UIViewController {
             self.present(alertViewController, animated: true)
         }
     }
+    
+    func hasSpecChars(text: String) -> Bool {
+        var invalidChars = CharacterSet.letters
+        invalidChars.insert(charactersIn: " ")
+        invalidChars.invert()
+        let acceptedChars = text.trimmingCharacters(in: invalidChars)
+        return acceptedChars.count < text.count
+    }
 }
 
 extension UIView {

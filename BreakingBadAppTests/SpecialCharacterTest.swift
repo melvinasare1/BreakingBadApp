@@ -9,20 +9,17 @@ import XCTest
 
 class SpecialCharacterTest: XCTestCase {
 
-
+    var homePage = HomePageViewController(viewModel: HomePageViewModel())
 
     override func setUp() {
         super.setUp()
-
     }
 
     func testSpecialCharacterInput() {
-        
+       XCTAssertFalse(homePage.hasSpecChars(text: "Skyler White"))
     }
 
-
     override func tearDown() {
-        networkManager = nil
         super.tearDown()
     }
 }
