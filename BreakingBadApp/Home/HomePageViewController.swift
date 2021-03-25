@@ -109,6 +109,11 @@ private extension HomePageViewController {
 
         viewModel.fetchCharacterData { [weak self] characterData in
             guard let self = self else { return }
+            
+            if characterData.isEmpty {
+                self.showEmptyStateView(in: self.view, isHidden: false)
+            }
+
             self.updateCollectionView(on: self.viewModel.characters)
             let seasons = characterData.flatMap({ $0.appearance })
             var seasonsArr = ["All"]
