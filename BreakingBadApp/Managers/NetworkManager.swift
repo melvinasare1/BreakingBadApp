@@ -6,10 +6,12 @@
 //
 
 import Alamofire
+import UIKit
 
 class NetworkManager {
 
     static let shared = NetworkManager()
+    public let cache = NSCache<NSString, UIImage>()
 
     func fetchCharacterDataAlamofire(_ completion: @escaping ([Character]) -> Void) {
         AF.request("https://breakingbadapi.com/api/characters")
@@ -37,6 +39,36 @@ class NetworkManager {
                 completion(character)
             } catch {
                 print(error)
+            }
+        }
+        task.resume()
+    }
+
+    func downloadCache(from urlString: String, imageView: UIImageView) {
+        let cacheKey = NSString(string: urlString)
+
+        if let image = cache.object(forKey: cacheKey) {
+            imageView.image = image
+            return
+        }
+
+        guard let url = URL(string: urlString) else { return }
+
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else { return }
+            if error != nil { return }
+
+            guard let response = response as? HTTPURLResponse,
+                  response.statusCode == 200,
+                  let data = data,
+                  let image = UIImage(data: data)
+            else { return }
+
+            self.cache.setObject(image, forKey: cacheKey)
+
+            DispatchQueue.main.async {
+
+                imageView.image = image
             }
         }
         task.resume()

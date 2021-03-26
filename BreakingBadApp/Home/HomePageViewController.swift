@@ -166,6 +166,6 @@ extension HomePageViewController:  UISearchResultsUpdating, UISearchBarDelegate 
     }
 
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return !text.hasSpecialCharacters
+        return !hasSpecChars(text: text)
     }
 }
