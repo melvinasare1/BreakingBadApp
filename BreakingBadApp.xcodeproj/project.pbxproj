@@ -26,7 +26,6 @@
 		12400A0125FE857C000A8ADA /* BreakingBad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A0025FE857C000A8ADA /* BreakingBad.swift */; };
 		12400A0825FEA739000A8ADA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A0725FEA739000A8ADA /* ProfileViewController.swift */; };
 		12400A1325FEA7AE000A8ADA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A1225FEA7AE000A8ADA /* ProfileViewModel.swift */; };
-		12400A3726053E6E000A8ADA /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A3626053E6E000A8ADA /* NetworkManagerTests.swift */; };
 		12400A4726066D43000A8ADA /* SpecialCharacterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12400A4626066D43000A8ADA /* SpecialCharacterTest.swift */; };
 		ADA10B4A3D4885223F867133 /* Pods_BreakingBadApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC298254367155423C71C00 /* Pods_BreakingBadApp.framework */; };
 /* End PBXBuildFile section */
@@ -64,7 +63,6 @@
 		12400A0725FEA739000A8ADA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		12400A1225FEA7AE000A8ADA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		12400A3426053E6D000A8ADA /* BreakingBadAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakingBadAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		12400A3626053E6E000A8ADA /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		12400A3826053E6E000A8ADA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12400A4626066D43000A8ADA /* SpecialCharacterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialCharacterTest.swift; sourceTree = "<group>"; };
 		2D7CDF45EB9AB21AE81B35DF /* Pods-BreakingBadApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadApp.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBadApp/Pods-BreakingBadApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 		12400A3526053E6E000A8ADA /* BreakingBadAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				12400A3626053E6E000A8ADA /* NetworkManagerTests.swift */,
 				12400A4626066D43000A8ADA /* SpecialCharacterTest.swift */,
 				12400A3826053E6E000A8ADA /* Info.plist */,
 			);
@@ -221,7 +218,7 @@
 			buildConfigurationList = 1240098925FC20CD000A8ADA /* Build configuration list for PBXNativeTarget "BreakingBadApp" */;
 			buildPhases = (
 				5FE20A4BCE55BACCC98B4EF3 /* [CP] Check Pods Manifest.lock */,
-				C21CACB79EE66CD9BAAAC43A /* [CP] Build Pods Frameworks */,
+				B7EDDDB8F6681DE616AAC43A /* Build Assets Catalog */,
 				1240097125FC20CA000A8ADA /* Sources */,
 				1240097225FC20CA000A8ADA /* Frameworks */,
 				1240097325FC20CA000A8ADA /* Resources */,
@@ -350,7 +347,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C21CACB79EE66CD9BAAAC43A /* [CP] Build Pods Frameworks */ = {
+		B7EDDDB8F6681DE616AAC43A /* Build Assets Catalog */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -359,7 +356,7 @@
 			);
 			inputPaths = (
 			);
-			name = "[CP] Build Pods Frameworks";
+			name = "Build Assets Catalog";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -399,7 +396,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12400A3726053E6E000A8ADA /* NetworkManagerTests.swift in Sources */,
 				12400A4726066D43000A8ADA /* SpecialCharacterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

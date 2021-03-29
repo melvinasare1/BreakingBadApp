@@ -29,6 +29,12 @@ class HomePageViewController: UIViewController {
         return collectionView
     }()
 
+    private let loadingIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     private lazy var dropDown: DropDown = {
         let dropDown = DropDown()
         let grayColor =  UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 0.5)
@@ -71,7 +77,7 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-
+    
         configureCollectionViewDataSource()
         updateCollectionView(on: viewModel.characters)
     }
@@ -95,10 +101,14 @@ class HomePageViewController: UIViewController {
 
 private extension HomePageViewController {
     func setup() {
+        loadingIndicatorView.startAnimating()
         title = BreakingBad.strings.breakingBad
-        
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+
         view.backgroundColor = .white
         view.addSubview(characterCollectionView)
+        view.addSubview(loadingIndicatorView)
 
         configureSearchController()
         addAnchorFotDropDown()
@@ -115,7 +125,12 @@ private extension HomePageViewController {
             let unique = Array(Set(seasons)).sorted().map({ String($0)})
             seasonsArr.append(contentsOf: unique)
             self.dropDown.dataSource = seasonsArr
+            DispatchQueue.main.async {
+                self.loadingIndicatorView.stopAnimating()
+            }
         }
+        loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loadingIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
     @objc func filterButtonPressed() {

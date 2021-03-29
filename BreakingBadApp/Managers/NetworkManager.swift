@@ -5,16 +5,15 @@
 //  Created by Melvin Asare on 12/03/2021.
 //
 
-import Alamofire
 import UIKit
 
 class NetworkManager {
 
     static let shared = NetworkManager()
     public let cache = NSCache<NSString, UIImage>()
+    public let endpoint = "https://breakingbadapi.com/api/characters"
 
     func fetchCharacterData(_ completion: @escaping ([Character]) -> Void) {
-        let endpoint = "https://breakingbadapi.com/api/characters"
 
         guard let url = URL(string: endpoint) else { return }
 
@@ -24,9 +23,9 @@ class NetworkManager {
                   response.statusCode == 200,
                   let data = data
             else { return }
-
             do {
                 let decoder = JSONDecoder()
+ 
                 let character = try decoder.decode([Character].self, from: data)
                 completion(character)
             } catch {

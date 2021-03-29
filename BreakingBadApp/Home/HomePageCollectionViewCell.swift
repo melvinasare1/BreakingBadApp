@@ -29,7 +29,7 @@ class HomePageCollectionViewCell: UICollectionViewCell {
     func configure(with character: Character) {
         avatarImageView.sd_setImage(with: URL(string: character.img))
         characterNameLabel.text = character.name
-       avatarImageView.downloadCache(url: character.img, imageView: self.avatarImageView)
+        avatarImageView.downloadCache(url: character.img, imageView: self.avatarImageView)
     }
 
     override init(frame: CGRect) {

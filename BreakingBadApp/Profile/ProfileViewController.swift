@@ -48,8 +48,7 @@ class ProfileViewController: UIViewController {
     private var statusLabel: CustomTitleLabel = {
         let label = CustomTitleLabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .darkGray
-        label.configure(textAlignment: .center, fontSize: 16, fontColor: .white, fontWeight: .regular)
+        label.configure(textAlignment: .center, fontSize: 16, fontColor: .darkGray, fontWeight: .regular)
         label.isHidden = true
         return label
     }()
@@ -125,7 +124,7 @@ extension ProfileViewController: PanModalPresentable {
     }
 
     var shortFormHeight: PanModalHeight {
-        return .contentHeight(350)
+        return .contentHeight(280)
     }
 
     var showDragIndicator: Bool {
@@ -152,8 +151,8 @@ private extension ProfileViewController {
 
         avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.padding).isActive = true
         avatarImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        avatarImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        avatarImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
 
         characterNameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: Constants.gap).isActive = true
         characterNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.imageViewDimensions).isActive = true
@@ -168,13 +167,12 @@ private extension ProfileViewController {
         seasonLabel.trailingAnchor.constraint(equalTo: occupationLabel.trailingAnchor).isActive = true
 
         statusImageView.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor).isActive = true
-        statusImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: Constants.padding).isActive = true
+        statusImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30).isActive = true
         statusImageView.heightAnchor.constraint(equalToConstant: Constants.imageViewDimensions).isActive = true
         statusImageView.widthAnchor.constraint(equalToConstant: Constants.imageViewDimensions).isActive = true
 
         statusLabel.bottomAnchor.constraint(equalTo: statusImageView.topAnchor, constant: -8).isActive = true
         statusLabel.centerXAnchor.constraint(equalTo: statusImageView.centerXAnchor).isActive = true
-
     }
 
     struct Constants {
