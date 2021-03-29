@@ -18,7 +18,6 @@ struct Character: Decodable {
     let appearance: [Int]
     let portrayed: String
     let category: String
-
     let uuid = UUID()
 }
 
