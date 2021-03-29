@@ -5,7 +5,6 @@
 //  Created by Melvin Asare on 12/03/2021.
 //
 
-import Alamofire
 import UIKit
 
 class NetworkManager {

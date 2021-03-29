@@ -19,7 +19,7 @@ struct Character: Decodable {
     let portrayed: String
     let category: String
 
-    let uuid = UUID()
+    var uuid = UUID()
 }
 
 extension Character: Hashable {
