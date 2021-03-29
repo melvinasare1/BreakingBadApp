@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let homePage = HomePageViewController(viewModel: HomePageViewModel())
             let navigationController = UINavigationController(rootViewController: homePage)
 
+       //     UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.darkGray.cgColor]
+
             self.window = window
             window.makeKeyAndVisible()
             window.rootViewController = navigationController
