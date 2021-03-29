@@ -10,17 +10,24 @@ import XCTest
 
 class NetworkManagerTests: XCTestCase {
 
-    var networkManager: NetworkManager!
+    var mockNetworkManager: MockNetworkManagerTest!
+
+
+    func testMockNetworkCall() {
+        mockNetworkManager.fetchCharacterData { json, error in
+            print(json)
+        }
+    }
+
+
 
     override func setUp() {
         super.setUp()
-        networkManager = NetworkManager()
     }
 
     
 
     override func tearDown() {
-        networkManager = nil
         super.tearDown()
     }
 

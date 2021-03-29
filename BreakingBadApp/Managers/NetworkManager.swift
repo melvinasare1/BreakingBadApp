@@ -12,17 +12,9 @@ class NetworkManager {
 
     static let shared = NetworkManager()
     public let cache = NSCache<NSString, UIImage>()
-
-    func fetchCharacterDataAlamofire(_ completion: @escaping ([Character]) -> Void) {
-        AF.request("https://breakingbadapi.com/api/characters")
-            .responseData { response in
-                completion(response)
-            }
-    }
-
+    public let endpoint = "https://breakingbadapi.com/api/characters"
 
     func fetchCharacterData(_ completion: @escaping ([Character]) -> Void) {
-        let endpoint = "https://breakingbadapi.com/api/characters"
 
         guard let url = URL(string: endpoint) else { return }
 
@@ -32,9 +24,9 @@ class NetworkManager {
                   response.statusCode == 200,
                   let data = data
             else { return }
-
             do {
                 let decoder = JSONDecoder()
+ 
                 let character = try decoder.decode([Character].self, from: data)
                 completion(character)
             } catch {
