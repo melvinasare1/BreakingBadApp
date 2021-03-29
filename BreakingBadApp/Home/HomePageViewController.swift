@@ -131,7 +131,7 @@ private extension HomePageViewController {
         loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         loadingIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
-
+    
     @objc func filterButtonPressed() {
         dropDown.show()
     }

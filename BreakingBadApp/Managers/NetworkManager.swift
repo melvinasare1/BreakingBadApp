@@ -12,24 +12,17 @@ class NetworkManager {
     static let shared = NetworkManager()
     public let cache = NSCache<NSString, UIImage>()
 
-    enum EndPoint: String {
-        case fetchCharactersEndPoint = "https://breakingbadapi.com/api/characters"
-    }
-  //  public let endpoint = "https://breakingbadapi.com/api/characters"
+    public let endpoint = "https://breakingbadapi.com/api/characters"
 
     func fetchCharacterData(_ completion: @escaping ([Character]) -> Void) {
-
-        guard let url = URL(string: EndPoint.fetchCharactersEndPoint.rawValue) else { return }
-
+        guard let url = URL(string: endpoint) else { return }
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-
             guard let response = response as? HTTPURLResponse,
                   response.statusCode == 200,
                   let data = data
             else { return }
             do {
                 let decoder = JSONDecoder()
- 
                 let character = try decoder.decode([Character].self, from: data)
                 completion(character)
             } catch {
