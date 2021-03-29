@@ -106,10 +106,10 @@ class ProfileViewController: UIViewController {
         characterNameLabel.textAlignment = .center
         characterNameLabel.numberOfLines = 0
         occupationLabel.text = viewModel.characterData.occupation.joined(separator: ", ")
-        seasonLabel.text = "Season Appearances \(viewModel.characterData.appearance)"
-        if viewModel.characterData.status == "Alive" {
+        seasonLabel.text = "\(BreakingBad.strings.seasonAppearances) \(viewModel.characterData.appearance)"
+        if viewModel.characterData.status == BreakingBad.strings.alive {
             statusImageView.configure(image: UIImage(named: "alive")!)
-        } else if viewModel.characterData.status == "Deceased" {
+        } else if viewModel.characterData.status == BreakingBad.strings.deceased {
             statusImageView.configure(image: UIImage(named: "deceased")!)
         } else {
             statusImageView.configure(image: UIImage(named: "unknown")!)

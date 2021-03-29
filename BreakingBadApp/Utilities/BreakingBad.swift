@@ -8,7 +8,5 @@
 import Foundation
 
 class BreakingBad {
-
     static let strings = Strings()
-
 }

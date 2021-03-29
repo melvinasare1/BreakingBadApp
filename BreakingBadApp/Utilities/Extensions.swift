@@ -8,15 +8,6 @@
 import UIKit
 
 extension UIViewController {
-
-    func presentCustomAlert(title: String, message: String, buttonTitle: String) {
-        DispatchQueue.main.async {
-            let alertViewController = CustomAlertView(title: title, message: message, buttonTitle: buttonTitle)
-            alertViewController.modalPresentationStyle = .overFullScreen
-            alertViewController.modalTransitionStyle = .crossDissolve
-            self.present(alertViewController, animated: true)
-        }
-    }
     
     func hasSpecChars(text: String) -> Bool {
         var invalidChars = CharacterSet.letters
@@ -41,25 +32,6 @@ extension UIView {
             trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
-    }
-}
-
-extension String {
-
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).uppercased() + lowercased().dropFirst()
-    }
-
-    mutating func capitalizeFirstLetter() {
-        self = capitalizingFirstLetter()
-    }
-
-    var hasSpecialCharacters: Bool {
-        var invalidChars = CharacterSet.letters
-        invalidChars.insert(charactersIn: " ")
-        invalidChars.invert()
-        let acceptedChars = self.trimmingCharacters(in: invalidChars)
-        return acceptedChars.count < self.count
     }
 }
 

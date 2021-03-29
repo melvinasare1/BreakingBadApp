@@ -24,7 +24,7 @@ class HomePageViewController: UIViewController {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(HomePageCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(HomePageCollectionViewCell.self, forCellWithReuseIdentifier: BreakingBad.strings.cell)
         collectionView.delegate = self
         return collectionView
     }()
@@ -46,7 +46,6 @@ class HomePageViewController: UIViewController {
         dropDown.dimmedBackgroundColor = grayColor
 
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-          print("Selected item: \(item) at index: \(index)")
             if index == 1 {
                 self.updateCollectionView(on: self.viewModel.characters)
             }else if index == 0{
@@ -113,7 +112,7 @@ private extension HomePageViewController {
         configureSearchController()
         addAnchorFotDropDown()
 
-        let filterButton = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonPressed))
+        let filterButton = UIBarButtonItem(title: BreakingBad.strings.filter, style: .plain, target: self, action: #selector(filterButtonPressed))
 
         navigationItem.rightBarButtonItem = filterButton
 
@@ -121,7 +120,7 @@ private extension HomePageViewController {
             guard let self = self else { return }
             self.updateCollectionView(on: self.viewModel.characters)
             let seasons = characterData.flatMap({ $0.appearance })
-            var seasonsArr = ["All"]
+            var seasonsArr = [BreakingBad.strings.all]
             let unique = Array(Set(seasons)).sorted().map({ String($0)})
             seasonsArr.append(contentsOf: unique)
             self.dropDown.dataSource = seasonsArr
@@ -150,7 +149,7 @@ extension HomePageViewController: UICollectionViewDelegate {
     func configureCollectionViewDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Character>(collectionView: characterCollectionView, cellProvider: { (collectionView, indexPath, characters) -> UICollectionViewCell? in
 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomePageCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BreakingBad.strings.cell, for: indexPath) as? HomePageCollectionViewCell
             cell?.configure(with: characters)
             return cell
         })
